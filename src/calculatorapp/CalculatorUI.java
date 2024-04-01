@@ -21,6 +21,40 @@ public class CalculatorUI extends javax.swing.JFrame
     {
         initComponents();
     }
+    
+    public void arithemticOperation()
+    {
+        switch(calculation)
+        {
+            case 1 ->
+            {
+                // Addition
+                ans = num + Double.parseDouble(jTextField1.getText());
+                jTextField1.setText(Double.toString(ans));
+            }
+            
+            case 2 ->
+            {
+                //Subtraction
+                ans = num - Double.parseDouble(jTextField1.getText());
+                jTextField1.setText(Double.toString(ans));
+            }
+            
+            case 3 ->
+            {
+                //Multiplication
+                ans = num * Double.parseDouble(jTextField1.getText());
+                jTextField1.setText(Double.toString(ans));
+            }
+            
+            case 4 ->
+            {
+                //Division
+                ans = num / Double.parseDouble(jTextField1.getText());
+                jTextField1.setText(Double.toString(ans));
+            }
+        }
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -386,22 +420,28 @@ public class CalculatorUI extends javax.swing.JFrame
 
     private void jButton10ActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_jButton10ActionPerformed
     {//GEN-HEADEREND:event_jButton10ActionPerformed
-        jTextField1.setText(jTextField1.getText() + "=");
+        arithemticOperation();
     }//GEN-LAST:event_jButton10ActionPerformed
 
     private void jButton11ActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_jButton11ActionPerformed
     {//GEN-HEADEREND:event_jButton11ActionPerformed
-        jTextField1.setText(jTextField1.getText() + "-");
+        num = Double.parseDouble(jTextField1.getText());
+        jTextField1.setText("");
+        calculation = 2;
     }//GEN-LAST:event_jButton11ActionPerformed
 
     private void jButton12ActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_jButton12ActionPerformed
     {//GEN-HEADEREND:event_jButton12ActionPerformed
-        jTextField1.setText(jTextField1.getText() + "*");
+        num = Double.parseDouble(jTextField1.getText());
+        jTextField1.setText("");
+        calculation = 3;
     }//GEN-LAST:event_jButton12ActionPerformed
 
     private void jButton13ActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_jButton13ActionPerformed
     {//GEN-HEADEREND:event_jButton13ActionPerformed
-        jTextField1.setText(jTextField1.getText() + "/");
+        num = Double.parseDouble(jTextField1.getText());
+        jTextField1.setText("");
+        calculation = 4;
     }//GEN-LAST:event_jButton13ActionPerformed
 
     private void jButton14ActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_jButton14ActionPerformed
@@ -436,7 +476,9 @@ public class CalculatorUI extends javax.swing.JFrame
 
     private void jButton18ActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_jButton18ActionPerformed
     {//GEN-HEADEREND:event_jButton18ActionPerformed
-        jTextField1.setText(jTextField1.getText() + "+");
+        num = Double.parseDouble(jTextField1.getText());
+        jTextField1.setText("");
+        calculation = 1;
     }//GEN-LAST:event_jButton18ActionPerformed
 
     private void jButton19ActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_jButton19ActionPerformed
@@ -485,12 +527,9 @@ public class CalculatorUI extends javax.swing.JFrame
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable()
+        java.awt.EventQueue.invokeLater(() ->
         {
-            public void run()
-            {
-                new CalculatorUI().setVisible(true);
-            }
+            new CalculatorUI().setVisible(true);
         });
     }
 
